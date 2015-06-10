@@ -36,25 +36,6 @@ bmiTell2 weight height
           normal = 25.0
           fat = 30.0
 
-data Shape0 = Circle0 Float Float Float | Rectangle0 Float Float Float Float deriving (Show)
-
-data Point = Point Float Float deriving (Show)
-data Shape = Circle Point Float | Rectangle Point Point deriving (Show)
-
-surface :: Shape -> Float
-surface (Circle _ r) = pi * r ^ 2
-surface (Rectangle (Point x1 y1) (Point x2 y2)) = (abs $ x2 - x1) * (abs $ y2 - y1)
-
-data Person = Person { firstName :: String
-                     , lastName :: String
-                     , age :: Int
-                     , height :: Float
-                     , phoneNumber :: String
-                     , flavor :: String
-                     } deriving (Show)
-
-data Car = Car {company :: String, model :: String, year :: Int} deriving (Show)
-
 main = do
   putStrLn "Hello, World"
   -- [d] <- map read `fmap` getArgs
@@ -66,7 +47,3 @@ main = do
   print $ tell [1, 2]
   print $ bmiTell 12.5
   print $ bmiTell2 300.5 1
-  print $ map (Circle0 10 20) [4,5,6,6]
-  print $ surface (Rectangle (Point 0 0) (Point 100 100))
-  print $ surface (Circle (Point 0 0) 24)
-  print (Car {company="Ford", model="Mustang", year=1967})
